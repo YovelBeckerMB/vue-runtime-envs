@@ -1,24 +1,32 @@
-# runtime-vars-test
+# Vue Runtime Environment Variables
 
-## Project setup
-```
-npm install
+## Reference
+This project is based on this article about [Vue.js runtime environment variables](https://medium.com/js-dojo/vue-js-runtime-environment-variables-807fa8f68665)
+  
+
+### Important files to review
+* /public/index.html
+* /src/config/index.js
+* /src/App.vue
+* entrypoint.sh
+* Dockerfile
+
+git remote add origin https://YovelBeckerMB:$AUTH_GITHUB_TOKEN@github.com/YovelBeckerMB/vue-runtime-envs.git
+
+## Usage
+To run and check this image use these commands:
+
+Build the image
+```sh
+docker build -t vue-runtime-envs .
 ```
 
-### Compiles and hot-reloads for development
+Run the image with the runtime environment variable you want to use
+```sh
+# for using the staging environment variables
+docker run -it -p 8080:80 --env-file=.env.staging --rm vuejs-runtime-environment-variables
 ```
-npm run serve
+```sh
+# for using the staging environment variables
+docker run -it -p 8080:80 --env-file=.env.production --rm vuejs-runtime-environment-variables
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
